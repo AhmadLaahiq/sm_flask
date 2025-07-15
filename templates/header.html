@@ -1,0 +1,68 @@
+<style>
+.sticky-navbar {
+    background: rgba(45,156,219,0.92) !important;
+    transition: background 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 12px rgba(45,156,219,0.13);
+}
+.navbar-brand img {
+    height: 32px;
+    width: auto;
+    margin-right: 12px;
+    margin-top: -2px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.navbar .container-fluid {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+@media (max-width: 576px) {
+    .navbar .container-fluid {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .navbar-brand {
+        font-size: 1rem !important;
+        white-space: normal !important;
+        word-break: break-word;
+        max-width: 70vw;
+        padding-right: 0.5rem;
+    }
+    .navbar-brand img {
+        height: 26px;
+        margin-right: 7px;
+    }
+    .navbar-toggler {
+        margin-left: auto;
+        margin-right: 0;
+        z-index: 2;
+    }
+}
+</style>
+<nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark bg-primary mb-4 sticky-top shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="/">
+      <img src="/static/img/logo.png" alt="Logo">
+      Pendeteksi Sindrom Metabolik
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link {% if request.path == '/artikel' %}active{% endif %}" href="/artikel"><i class="fa-solid fa-book-open me-1"></i>Artikel</a></li>
+        <li class="nav-item"><a class="nav-link {% if request.path == '/prediksi' %}active{% endif %}" href="/prediksi"><i class="fa-solid fa-magnifying-glass-chart me-1"></i>Prediksi</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<script>
+window.addEventListener('scroll', function() {
+  var nav = document.getElementById('main-navbar');
+  if(window.scrollY > 10) {
+    nav.classList.add('sticky-navbar');
+  } else {
+    nav.classList.remove('sticky-navbar');
+  }
+});
+</script> 
